@@ -1,0 +1,49 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #a5b4fc;
+}
+
+/* Main content */
+main {
+  flex: 1;
+}
+
+/* Footer */
+.footer {
+  background-color: #1f2937;
+  color: #d1d5db;
+}
+
+.footer a {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #818cf8;
+}

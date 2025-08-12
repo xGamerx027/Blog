@@ -1,0 +1,25 @@
+{% extends 'admin/base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/new_post.css') }}">
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Criar Novo Post</h1>
+<form method="POST" action="{{ url_for('admin.new_post') }}">
+    <label for="title">Título:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="content">Conteúdo:</label><br>
+    <textarea id="content" name="content" rows="5"></textarea><br><br>
+
+    <button type="submit">Publicar</button>
+</form>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#content'))
+        .catch(error => console.error(error));
+</script>
+{% endblock %}

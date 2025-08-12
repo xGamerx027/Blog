@@ -1,0 +1,41 @@
+/* admin_posts.css */
+
+/* Estilização do título */
+h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Botão "Novo Post" */
+.btn-success {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+/* Tabela responsiva e com espaçamento */
+.table {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+/* Botões de ação */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    margin-right: 5px;
+}
+
+/* Confirmação mais visível */
+.btn-danger {
+    transition: all 0.2s ease-in-out;
+}
+.btn-danger:hover {
+    transform: scale(1.05);
+    background-color: #bb2d3b;
+}

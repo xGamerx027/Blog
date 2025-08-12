@@ -1,0 +1,46 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block content %}
+<h1 class="dashboard-title">Painel de Controle</h1>
+
+<div class="row text-center g-4 mt-4">
+    <div class="col-md-4">
+        <div class="card card-stat">
+            <div class="card-body">
+                <i class="bi bi-journal-richtext icon"></i>
+                <h5 class="card-title">Postagens</h5>
+                <p class="card-text">{{ total_posts }} publicadas</p>
+                <a href="{{ url_for('admin.posts') }}" class="btn btn-primary">Gerenciar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-stat">
+            <div class="card-body">
+                <i class="bi bi-people icon"></i>
+                <h5 class="card-title">Usuários</h5>
+                <p class="card-text">{{ total_users }} registrados</p>
+                <a href="{{ url_for('admin.users') }}" class="btn btn-primary">Ver usuários</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-stat">
+            <div class="card-body">
+                <i class="bi bi-gear icon"></i>
+                <h5 class="card-title">Configurações</h5>
+                <p class="card-text">Preferências do blog</p>
+                <a href="#" class="btn btn-secondary">Abrir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Painel Admin - Blog{% endblock %}</title>
+
+    <!-- Bootstrap + Google Fonts + FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/base.css') }}">
+    <script src="https://kit.fontawesome.com/a2e3e6cf13.js" crossorigin="anonymous"></script>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Sidebar + Navbar -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-dark text-white p-3">
+            <h4 class="text-center mb-4">Painel</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-white" href="{{ url_for('admin.dashboard') }}">
+                        <i class="fas fa-home me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-white" href="{{ url_for('admin.posts') }}">
+                        <i class="fas fa-pencil-alt me-2"></i> Postagens
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-cogs me-2"></i> Configurações
+                    </a>
+                </li>
+                <li class="nav-item mt-4">
+                    <a class="btn btn-danger w-100" href="{{ url_for('main.index') }}">
+                        <i class="fas fa-sign-out-alt me-2"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+      
+      
+
+        <!-- Conteúdo principal -->
+        <div class="content flex-grow-1 p-4">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-light text-center text-muted py-3">
+        <small>&copy; 2025 Painel do Blog. Desenvolvido por Victor.</small>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Esconde as mensagens flash automaticamente após 4 segundos
+        setTimeout(function() {
+          const alerts = document.querySelectorAll('.alert');
+          alerts.forEach(alert => {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(() => {
+              alert.remove();
+            }, 500); // tempo para completar fade-out
+          });
+        }, 4000);
+    </script>
+          
+</body>
+</html>

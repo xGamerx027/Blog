@@ -1,0 +1,52 @@
+/* admin_new_post.css */
+
+h1 {
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #212529;
+}
+
+/* Labels */
+label {
+    font-weight: 500;
+    display: block;
+    margin-top: 10px;
+    color: #343a40;
+}
+
+/* Inputs e Textareas */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Botão de envio */
+button[type="submit"] {
+    background-color: #198754;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #157347;
+}

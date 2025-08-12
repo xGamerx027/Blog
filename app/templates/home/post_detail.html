@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home/post_detail.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="post-container">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-date">Publicado em {{ post.created_at.strftime('%d/%m/%Y') }}</p>
+    
+    <div class="post-content">
+        {{ post.content | safe }}
+    </div>
+    
+    <div class="btn-wrapper">
+        <a href="{{ url_for('main.index') }}" class="btn-back">← Voltar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/edit_post.css') }}">
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+{% endblock %}
+
+{% block content %}
+<h2>Editar Post</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Conteúdo</label>
+        <textarea class="form-control" id="content" name="content" rows="5" required>{{ post.content | safe}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ url_for('admin.posts') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#content'))
+        .catch(error => console.error(error));
+</script>
+{% endblock %}
